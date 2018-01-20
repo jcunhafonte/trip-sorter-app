@@ -1,0 +1,45 @@
+<div class="ts-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <div>
+      <mat-form-field>
+        <mat-select [placeholder]="labels.from"
+                    [formControlName]="identifiers.from">
+          <mat-option *ngFor="let city of getCities(identifiers.from)"
+                      [value]="city">
+            <span>{{city}}</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select [placeholder]="labels.to"
+                    [formControlName]="identifiers.to">
+          <mat-option *ngFor="let city of getCities(identifiers.to)"
+                      [value]="city">
+            {{city}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="ts-form__sorting-type">
+      <button type="button"
+              [color]="getButtonSortColor(0)"
+              mat-raised-button
+              (click)="onSort(0)">
+        {{labels.sorting.cheapest}}
+      </button>
+      <button type="button"
+              [color]="getButtonSortColor(1)"
+              mat-raised-button
+              (click)="onSort(1)">
+        {{labels.sorting.fastest}}
+      </button>
+    </div>
+    <button type="submit"
+            color="primary"
+            [disabled]="isDisabled()"
+            mat-raised-button>
+      {{labels.search}}
+    </button>
+  </form>
+</div>
+

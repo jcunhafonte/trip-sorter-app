@@ -1,0 +1,39 @@
+<div class="ts-list">
+  <ul>
+    <li *ngFor="let path of paths">
+      <h3>
+        {{getPathName(path)}}
+        <span>
+          {{getPathCost(path)}}
+        </span>
+      </h3>
+      <p>
+        <span class="ts-list__transport">
+          {{getPathTransport(path)}}
+        </span>
+        {{getPathDescription(path)}}
+        <span *ngIf="hasDiscount(path)"
+              class="ts-list__discount ts-list__discount--original">
+          {{getPathDiscount(path)}}
+        </span>
+      </p>
+    </li>
+    <li>
+      <h2>
+        Total
+        <span>
+          {{getTotalCost()}}
+        </span>
+      </h2>
+      <p>
+        <span>
+          {{getTotalTime()}}
+        </span>
+        <span *ngIf="hasTotalDiscount()">
+          {{getTotalDiscount()}}
+        </span>
+      </p>
+    </li>
+  </ul>
+
+</div>

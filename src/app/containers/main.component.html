@@ -1,0 +1,9 @@
+<div class="ts-main">
+  <ts-form [cities]="cities"
+           (submit)="onSubmit($event)">
+  </ts-form>
+  <ts-list *ngIf="hasPaths()"
+           [paths]="paths"
+           [currency]="currency">
+  </ts-list>
+</div>

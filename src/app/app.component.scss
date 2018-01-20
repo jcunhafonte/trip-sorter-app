@@ -1,0 +1,8 @@
+$base-dimension: 16px;
+
+.ts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: $base-dimension 0;
+}
